@@ -1,0 +1,53 @@
+.tree {
+  // line-height: 100%;
+  cursor      : default;
+  padding-left: 10px;
+
+
+  li {
+    list-style: none;
+    padding   : 8px 0;
+    color     : #444;
+    cursor    : pointer;
+    transition: all .4s;
+
+    &:not(.expend):hover {
+      background-color: #999;
+    }
+
+    &:has(ul):hover {
+      color           : red !important;
+      background-color: #fff;
+    }
+
+    &>ul {
+      height      : 0;
+      cursor      : default;
+      padding-left: 24px;
+      transition  : height 11s ease-in-out;
+      overflow    : hidden;
+    }
+
+
+    &.expend>ul {
+      height: auto;
+    }
+
+
+    &::before {
+      content     : '';
+      display     : inline-block;
+      border-width: 6px 9px;
+      border-color: transparent;
+      border-style: solid;
+      border-left : currentColor solid 12px;
+      transform   : translateX(4px);
+    }
+
+    &.expend::before {
+      transform: rotate(90deg) translateX(6px);
+    }
+  }
+
+
+}

@@ -1,0 +1,46 @@
+.pie,
+.pie::before {
+  width        : 0;
+  border-radius: 50%;
+  box-sizing   : content-box;
+  display: inline-block;
+}
+
+
+.pie {
+  position: relative;
+  border-width: 100px;
+  border-color: #3c7 #3c7 #37c #37c;
+  border-style: solid;
+  margin: 0 10px;
+  transform: rotate(45deg);
+
+  &::before {
+    content     : "";
+    position    : absolute;
+    border      : 100px solid;
+    border-color: #37c #37c transparent transparent;
+
+    transform: translate(-50%, -50%) rotate(0turn);
+
+    animation: spine 10s linear infinite,
+      convex 10s step-end infinite;
+    animation-play-state: paused;
+    animation-delay     : inherit;
+
+  }
+
+
+}
+
+@keyframes spine {
+  to {
+    transform: translate(-50%, -50%) rotate(1turn);
+  }
+}
+
+@keyframes convex {
+  50% {
+    border-color: transparent transparent #3c7 #3c7;
+  }
+}

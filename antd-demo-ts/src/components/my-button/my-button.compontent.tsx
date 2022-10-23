@@ -3,6 +3,8 @@ import { FC, useEffect } from "react";
 // import { FC } from "react";
 import { withDefaultProps } from "../../utils/HOC/withDefaultProps";
 
+/* 组件封装 */
+
 // 组件类型
 type MyButtonProps = {
   hello?: string;
@@ -32,5 +34,5 @@ const MyButton: FC<MyButtonProps> = ({ hello, ...restProps }) => {
 export default withDefaultProps<MyButtonProps>({
   size: "large",
   type: "default",
-  onClick: () => console.log("default click"),
+  onClick: () => console.log("default click"), // 添加默认属性
 })(MyButton);
